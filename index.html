@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clearworth Financial Review</title>
+<meta name="description" content="A one-to-one review of your finances. Know where you stand and leave with a clear plan.">
+<meta property="og:title" content="Know where you stand. Leave with a plan.">
+<meta property="og:description" content="A one-to-one Clearworth financial review. Book a time that suits you.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Clearworth tokens (src/app/globals.css) */
+  :root {
+    --ink: #1d120e; --primary: #462e24; --muted: #5f5650; --gold: #7a5a3a;
+    --accent: #e6edf4; --feature-border: #a4bcd4; --border: #d6ccc1; --secondary: #f7f5f2;
+    --healthy: #245b52; --healthy-soft: #e7f0ed;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: #fff; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+  a { color: inherit; }
+
+  header { padding: 18px 0; border-bottom: 1px solid var(--border); }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-weight: 700; font-size: 19px; letter-spacing: -0.01em; text-decoration: none; }
+  .header-book { font-size: 15px; font-weight: 600; color: var(--primary); }
+
+  .hero { padding: 40px 0 32px; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); }
+  h1 span { display: block; }
+  h1 { font-size: clamp(28px, 7.8vw, 48px); line-height: 1.06; letter-spacing: -0.03em; color: var(--primary); margin: 10px 0 14px; }
+  .lead { font-size: 18px; color: var(--muted); }
+
+  .btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 56px; padding: 14px 20px; border-radius: 12px; font-size: 18px; font-weight: 600; text-decoration: none; }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-primary:active { transform: translateY(1px); }
+  .btn-secondary { border: 1.5px solid var(--border); color: var(--primary); background: #fff; }
+  .actions { display: grid; gap: 10px; margin-top: 24px; }
+  .note { font-size: 14px; color: var(--muted); text-align: center; margin-top: 4px; }
+  .btn:focus-visible, .tab:focus-visible { outline: 3px solid var(--feature-border); outline-offset: 2px; }
+
+  section { padding: 32px 0; }
+  h2 { font-size: 24px; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .section-sub { color: var(--muted); margin-bottom: 18px; }
+
+  /* Sample preview: three tabs, one screen at a time */
+  .preview { background: var(--accent); border: 1.5px solid var(--feature-border); border-radius: 20px; padding: 14px; }
+  .tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: #fff; border-radius: 12px; padding: 4px; }
+  .tab { font: inherit; font-size: 14px; font-weight: 600; color: var(--muted); background: none; border: 0; border-radius: 9px; padding: 10px 4px; cursor: pointer; }
+  .tab[aria-selected="true"] { background: var(--primary); color: #fff; }
+  .panel { margin-top: 14px; }
+  .panel img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); background: #fff; }
+  .panel p { font-size: 15px; color: var(--muted); margin-top: 12px; padding: 0 4px; }
+  .stack { display: grid; gap: 10px; }
+  .legacy { background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); padding: 8px 10px 6px 4px; }
+  .panel .legacy img { box-shadow: none; border-radius: 0; width: auto; }
+  .legacy .head { height: 26px; margin-bottom: 4px; }
+  .lg-row { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e8e2da; }
+  .lg-row img { height: 23px; }
+  .sample-tag { display: inline-block; font-size: 12px; font-weight: 600; color: var(--muted); background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; margin-top: 12px; }
+
+  .steps { list-style: none; padding: 0; display: grid; gap: 14px; }
+  .steps li { display: flex; gap: 14px; align-items: flex-start; }
+  .num { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; display: grid; place-items: center; }
+  .steps b { display: block; font-size: 17px; }
+  .steps span { color: var(--muted); font-size: 15px; }
+
+  .options { display: grid; gap: 10px; }
+  .option { border: 1.5px solid var(--border); border-radius: var(--radius); padding: 14px 16px; display: flex; gap: 14px; align-items: center; }
+  .option svg { flex: none; width: 26px; height: 26px; color: var(--primary); }
+  .option b { display: block; }
+  .option span { font-size: 14px; color: var(--muted); }
+
+  .facts { background: var(--secondary); border-radius: var(--radius); padding: 16px 18px; display: grid; gap: 8px; font-size: 15px; }
+  .facts div { display: flex; gap: 10px; }
+  .facts dt { font-weight: 600; min-width: 92px; }
+  .facts dd { color: var(--muted); }
+
+  .bring { padding-left: 20px; color: var(--muted); display: grid; gap: 4px; }
+
+  .final { background: var(--primary); color: #fff; border-radius: 20px; padding: 28px 22px; text-align: center; }
+  .final h2 { color: #fff; }
+  .final p { opacity: .88; margin-bottom: 18px; }
+  .final .btn-primary { background: #fff; color: var(--primary); }
+
+  footer { padding: 28px 0 96px; font-size: 13px; color: var(--muted); }
+
+  /* Sticky book bar on phones once the hero button has scrolled away */
+  .sticky { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid var(--border); transform: translateY(110%); transition: transform .2s ease; }
+  .sticky.show { transform: none; }
+  .sticky .btn { max-width: 608px; margin: 0 auto; }
+  @media (prefers-reduced-motion: reduce) { .sticky { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="brand">Clearworth</span>
+    <a class="header-book book-link" href="#">Book a time</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section class="hero">
+      <p class="eyebrow">One-to-one financial review</p>
+      <h1><span>Know where you stand.</span> <span>Leave with a plan.</span></h1>
+      <p class="lead">We go through your finances together, agree what matters most, and you take home a written report with clear next steps.</p>
+      <div class="actions" id="hero-actions">
+        <a class="btn btn-primary book-link" href="#">Book a time</a>
+        <p class="note">Monday to Saturday, 12pm to 9pm · I'll confirm every booking personally</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="preview-h">
+      <h2 id="preview-h">What you'll see</h2>
+      <p class="section-sub">A sample from the Clearworth report. Tap to look around.</p>
+      <div class="preview">
+        <div class="tabs" role="tablist" aria-label="Sample screens">
+          <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Scorecard</button>
+          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Halal review</button>
+          <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Legacy</button>
+        </div>
+        <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+          <div class="stack">
+            <img src="img/score-emergency.jpg" width="900" height="463" alt="Sample scorecard: emergency fund 5.8 months, review recommended, against a 3 to 6 month reference.">
+            <img src="img/score-debt.jpg" width="900" height="508" alt="Sample scorecard: debt repayments 23.1% of take-home pay, healthy, against a 35% reference.">
+          </div>
+          <p>Each key measure is checked against a general guideline and given a clear status.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
+          <img src="img/halal.jpg" width="836" height="900" alt="Sample list of halal alternatives to discuss: a fixed deposit, a unit trust and a home loan.">
+          <p>Flag any savings, investments or loans you'd like to talk through halal alternatives for. They're noted for discussion. Clearworth doesn't rate products as halal or not.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
+          <div class="legacy" role="img" aria-label="Sample legacy checklist: zakat done, wasiat not done, hibah not sure, CPF nomination not done, waqaf done.">
+            <img class="head" src="img/legacy/lg-head.png" alt=""><div class="lg-row"><img src="img/legacy/lg-1-t.png" alt=""><img src="img/legacy/lg-1-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-2-t.png" alt=""><img src="img/legacy/lg-2-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-3-t.png" alt=""><img src="img/legacy/lg-3-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-4-t.png" alt=""><img src="img/legacy/lg-4-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-5-t.png" alt=""><img src="img/legacy/lg-5-s.png" alt=""></div>
+          </div>
+          <p>Zakat, wasiat, hibah, nominations and waqaf in one checklist, so nothing important is missed.</p>
+        </div>
+        <span class="sample-tag">Sample client · fictional figures</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="how-h">
+      <h2 id="how-h">How it works</h2>
+      <p class="section-sub">Three simple steps.</p>
+      <ol class="steps">
+        <li><span class="num">1</span><div><b>Prepare your figures</b><span>Income, spending, savings, CPF, loans and policies. Rough numbers are fine.</span></div></li>
+        <li><span class="num">2</span><div><b>Review together</b><span>One to two hours, depending on how much is ready.</span></div></li>
+        <li><span class="num">3</span><div><b>Receive your report</b><span>A written summary with your priorities and next steps.</span></div></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="where-h">
+      <h2 id="where-h">Where we meet</h2>
+      <p class="section-sub">Choose when you book.</p>
+      <div class="options">
+        <div class="option">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
+          <div><b>My office</b><span>SingPost Centre, Paya Lebar</span></div>
+        </div>
+        <div class="option">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <div><b>Your place</b><span>Anywhere in Singapore, subject to travel time</span></div>
+        </div>
+        <div class="option">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10.5 21.5 7v10l-6-3.5"/></svg>
+          <div><b>Online via Zoom</b><span>Your Zoom link comes with your confirmation</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="good-h">
+      <h2 id="good-h">Good to know</h2>
+      <dl class="facts">
+        <div><dt>Days</dt><dd>Monday to Saturday, 12pm to 9pm</dd></div>
+        <div><dt>Notice</dt><dd>Book at least one day ahead</dd></div>
+        <div><dt>Length</dt><dd>One to two hours</dd></div>
+        <div><dt>Confirming</dt><dd>I'll confirm each request by email, usually the same day. If I can't make your chosen time, I'll contact you to arrange another.</dd></div>
+        <div><dt>Changes</dt><dd>Reschedule or cancel from your confirmation email</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="bring-h">
+      <h2 id="bring-h">Helpful to have ready</h2>
+      <ul class="bring">
+        <li>Monthly take-home pay and main expenses</li>
+        <li>Savings, investments and CPF balances</li>
+        <li>Loans, and any insurance policies</li>
+      </ul>
+      <p class="section-sub" style="margin-top:10px">Don't worry if some are missing. We can work through it together.</p>
+    </section>
+
+    <section>
+      <div class="final">
+        <h2>Ready when you are</h2>
+        <p>Pick a time that suits you. I'll confirm it personally.</p>
+        <a class="btn btn-primary book-link" href="#">Book a time</a>
+        <p style="margin:14px 0 0;font-size:15px">Can't find a time? <a class="telegram-link" href="#" style="color:#fff;font-weight:600">Message me on Telegram</a></p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    The sample shows a fictional client. Figures are illustrative only and not a forecast or guarantee of any outcome. Your review is based on your own information.
+  </div>
+</footer>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <a class="btn btn-primary book-link" href="#" tabindex="-1">Book a time</a>
+</div>
+
+<script>
+  // Fill these in before publishing.
+  const BOOKING_URL = "https://cal.com/zuirfanjamil/review";
+  const TELEGRAM_URL = "https://t.me/zuirfanjamil";
+
+  document.querySelectorAll(".book-link").forEach((a) => { a.href = BOOKING_URL; a.target = "_blank"; a.rel = "noopener"; });
+  document.querySelectorAll(".telegram-link").forEach((a) => { a.href = TELEGRAM_URL; });
+
+  // Tabs: click, or arrow keys when focused.
+  const tabs = [...document.querySelectorAll(".tab")];
+  function select(tab) {
+    tabs.forEach((t) => {
+      const on = t === tab;
+      t.setAttribute("aria-selected", on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => select(t));
+    t.addEventListener("keydown", (e) => {
+      const step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!step) return;
+      const next = tabs[(i + step + tabs.length) % tabs.length];
+      select(next); next.focus();
+    });
+  });
+
+  // Show the sticky button once the hero button is off screen.
+  const sticky = document.getElementById("sticky");
+  new IntersectionObserver(([entry]) => sticky.classList.toggle("show", !entry.isIntersecting))
+    .observe(document.getElementById("hero-actions"));
+</script>
+</body>
+</html>
