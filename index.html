@@ -61,6 +61,11 @@
   .lg-row img { height: 23px; }
   .sample-tag { display: inline-block; font-size: 12px; font-weight: 600; color: var(--muted); background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 3px 10px; margin-top: 12px; }
 
+  .more { list-style: none; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--border); }
+  .more li { padding: 12px 0 12px 26px; border-bottom: 1px solid var(--border); position: relative; }
+  .more li::before { content: ""; position: absolute; left: 4px; top: 19px; width: 8px; height: 8px; border-radius: 50%; background: var(--feature-border); }
+  .more b { display: block; font-size: 16px; }
+  .more span { display: block; color: var(--muted); font-size: 14px; }
   .steps { list-style: none; padding: 0; display: grid; gap: 14px; }
   .steps li { display: flex; gap: 14px; align-items: flex-start; }
   .num { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; display: grid; place-items: center; }
@@ -131,8 +136,8 @@
           <p>Each key measure is checked against a general guideline and given a clear status.</p>
         </div>
         <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
-          <img src="img/halal.jpg" width="836" height="900" alt="Sample list of halal alternatives to discuss: a fixed deposit, a unit trust and a home loan.">
-          <p>Flag any savings, investments or loans you'd like to talk through halal alternatives for. They're noted for discussion. Clearworth doesn't rate products as halal or not.</p>
+          <img src="img/halal.jpg" width="900" height="705" alt="Sample list of halal alternatives to discuss: a fixed deposit and a unit trust.">
+          <p>Flag any savings or investments you'd like to talk through halal alternatives for. They're noted for discussion. Clearworth doesn't rate products as halal or not.</p>
         </div>
         <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
           <div class="legacy" role="img" aria-label="Sample legacy checklist: zakat done, wasiat not done, hibah not sure, CPF nomination not done, waqaf done.">
@@ -142,6 +147,20 @@
         </div>
         <span class="sample-tag">Sample client · fictional figures</span>
       </div>
+    </section>
+
+    <section aria-labelledby="more-h">
+      <h2 id="more-h">And there's more</h2>
+      <p class="section-sub">The samples above are just a taste. Your review also covers:</p>
+      <ul class="more">
+        <li><b>Your full picture</b><span>Net worth, cash flow and where your money goes each month</span></li>
+        <li><b>All 12 health measures</b><span>Safety net, budget, debt, wealth mix and protection</span></li>
+        <li><b>Your goals</b><span>Hajj or Umrah, education, a home, a wedding or retirement, including what CPF can cover</span></li>
+        <li><b>Insurance check</b><span>Whether premiums are affordable and how your cover compares with general guidelines</span></li>
+        <li><b>A clear action plan</b><span>Your top priorities in order, and how to split your spare cash each month</span></li>
+        <li><b>"What if" scenarios</b><span>Try changes to spending, saving or investing and see the effect on your goals</span></li>
+        <li><b>A written report to keep</b><span>Everything we covered, summarised for you</span></li>
+      </ul>
     </section>
 
     <section aria-labelledby="how-h">
