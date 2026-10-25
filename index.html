@@ -49,8 +49,8 @@
 
   /* Sample preview: three tabs, one screen at a time */
   .preview { background: var(--accent); border: 1.5px solid var(--feature-border); border-radius: 20px; padding: 14px; }
-  .tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: #fff; border-radius: 12px; padding: 4px; }
-  .tab { font: inherit; font-size: clamp(12px, 3.5vw, 14px); font-weight: 600; color: var(--muted); background: none; border: 0; border-radius: 9px; padding: 10px 2px; cursor: pointer; }
+  .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: #fff; border-radius: 12px; padding: 4px; }
+  .tab { font: inherit; font-size: 15px; font-weight: 600; color: var(--muted); background: none; border: 0; border-radius: 9px; padding: 10px 2px; cursor: pointer; }
   .tab[aria-selected="true"] { background: var(--primary); color: #fff; }
   .panel { margin-top: 14px; }
   .panel img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); background: #fff; }
@@ -144,7 +144,7 @@
         <div class="tabs" role="tablist" aria-label="Sample screens">
           <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true">Outcome</button>
           <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Scorecard</button>
-          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Halal</button>
+          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Halal alternatives</button>
           <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Legacy</button>
         </div>
         <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0">
