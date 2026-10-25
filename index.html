@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="format-detection" content="telephone=no">
 <title>Clearworth Financial Review</title>
 <meta name="description" content="A one-to-one review of your finances. Know where you stand and leave with a clear plan.">
 <meta property="og:title" content="Know where you stand. Leave with a plan.">
@@ -47,13 +49,18 @@
 
   /* Sample preview: three tabs, one screen at a time */
   .preview { background: var(--accent); border: 1.5px solid var(--feature-border); border-radius: 20px; padding: 14px; }
-  .tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; background: #fff; border-radius: 12px; padding: 4px; }
-  .tab { font: inherit; font-size: 14px; font-weight: 600; color: var(--muted); background: none; border: 0; border-radius: 9px; padding: 10px 4px; cursor: pointer; }
+  .tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: #fff; border-radius: 12px; padding: 4px; }
+  .tab { font: inherit; font-size: clamp(12px, 3.5vw, 14px); font-weight: 600; color: var(--muted); background: none; border: 0; border-radius: 9px; padding: 10px 2px; cursor: pointer; }
   .tab[aria-selected="true"] { background: var(--primary); color: #fff; }
   .panel { margin-top: 14px; }
   .panel img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); background: #fff; }
   .panel p { font-size: 15px; color: var(--muted); margin-top: 12px; padding: 0 4px; }
   .stack { display: grid; gap: 10px; }
+  .outcome { background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); padding: 12px 8px 8px; }
+  .panel .outcome img { box-shadow: none; border-radius: 0; }
+  .outcome > img { width: 70%; }
+  .oc-card { margin-top: 8px; border: 1px solid #e8e2da; border-top: 3px solid #245b52; border-radius: 10px; padding: 8px 4px 6px; display: grid; gap: 6px; }
+  .oc-card img:first-child { width: 52%; }
   .legacy { background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); padding: 8px 10px 6px 4px; }
   .panel .legacy img { box-shadow: none; border-radius: 0; width: auto; }
   .legacy .head { height: 26px; margin-bottom: 4px; }
@@ -68,7 +75,7 @@
   .more span { display: block; color: var(--muted); font-size: 14px; }
   .steps { list-style: none; padding: 0; display: grid; gap: 14px; }
   .steps li { display: flex; gap: 14px; align-items: flex-start; }
-  .num { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: #fff; font-weight: 700; display: grid; place-items: center; }
+  .steps .num { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--primary); color: #fff !important; -webkit-text-fill-color: #fff; font-weight: 700; display: grid; place-items: center; }
   .steps b { display: block; font-size: 17px; }
   .steps div span { color: var(--muted); font-size: 15px; }
 
@@ -124,11 +131,22 @@
       <p class="section-sub">A sample from the Clearworth report. Tap to look around.</p>
       <div class="preview">
         <div class="tabs" role="tablist" aria-label="Sample screens">
-          <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="true">Scorecard</button>
-          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Halal review</button>
+          <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true">Outcome</button>
+          <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Scorecard</button>
+          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Halal</button>
           <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Legacy</button>
         </div>
-        <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1">
+        <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0">
+          <div class="outcome" role="img" aria-label="Sample: if you follow this plan, savings rate would go from 16.9% (review recommended) to 30.1% (healthy). Illustration only, not a guarantee.">
+            <img src="img/outcome/head.png" alt="">
+            <div class="oc-card">
+              <img src="img/outcome/label.png" alt="">
+              <img src="img/outcome/numbers.png" alt="">
+            </div>
+          </div>
+          <p>See what would change if you follow your plan, before you commit. Here, the savings rate reaches Healthy as soon as the plan starts. An illustration, not a promise.</p>
+        </div>
+        <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
           <div class="stack">
             <img src="img/score-emergency.jpg" width="900" height="463" alt="Sample scorecard: emergency fund 5.8 months, review recommended, against a 3 to 6 month reference.">
             <img src="img/score-debt.jpg" width="900" height="508" alt="Sample scorecard: debt repayments 23.1% of take-home pay, healthy, against a 35% reference.">
