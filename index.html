@@ -54,11 +54,6 @@
   .panel img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); background: #fff; }
   .panel p { font-size: 15px; color: var(--muted); margin-top: 12px; padding: 0 4px; }
   .stack { display: grid; gap: 10px; }
-  .outcome { background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); padding: 12px 8px 8px; }
-  .panel .outcome img { box-shadow: none; border-radius: 0; }
-  .outcome > img { width: 70%; }
-  .oc-card { margin-top: 8px; border: 1px solid #e8e2da; border-top: 3px solid #245b52; border-radius: 10px; padding: 8px 4px 6px; display: grid; gap: 6px; }
-  .oc-card img:first-child { width: 52%; }
   .legacy { background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); padding: 8px 10px 6px 4px; }
   .panel .legacy img { box-shadow: none; border-radius: 0; width: auto; }
   .legacy .head { height: 26px; margin-bottom: 4px; }
@@ -69,6 +64,7 @@
   .q-label { font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); margin: 24px 0 0; }
   .questions { list-style: none; padding: 0; margin-top: 10px; display: grid; gap: 8px; }
   .questions li { display: flex; gap: 12px; font-size: 19px; font-weight: 600; line-height: 1.3; }
+  .questions b { font-weight: 700; color: var(--primary); }
   .questions i { font-style: normal; font-weight: 700; color: var(--gold); width: 14px; flex: none; font-variant-numeric: tabular-nums; }
   .more { list-style: none; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--border); }
   .more li { padding: 12px 0 12px 26px; border-bottom: 1px solid var(--border); position: relative; }
@@ -119,10 +115,10 @@
       <div>
         <h2 class="q-label">After your review, you’ll</h2>
         <ol class="questions">
-          <li><i>1</i>Know what’s set aside</li>
-          <li><i>2</i>See what’s on track</li>
-          <li><i>3</i>Plan with confidence</li>
-          <li><i>4</i>Know your next steps</li>
+          <li><i>1</i><span><b>Understand</b> your financial position</span></li>
+          <li><i>2</i><span><b>Discover</b> what’s on track</span></li>
+          <li><i>3</i><span><b>Prioritise</b> what needs action</span></li>
+          <li><i>4</i><span><b>Act</b> with confidence</span></li>
         </ol>
       </div>
       <div class="actions" id="hero-actions">
@@ -136,37 +132,39 @@
       <p class="section-sub">A sample from the Clearworth report. Tap to look around.</p>
       <div class="preview">
         <div class="tabs" role="tablist" aria-label="Sample screens">
-          <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true">Outcome</button>
-          <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Scorecard</button>
-          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Halal alternatives</button>
-          <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Legacy</button>
+          <button class="tab" role="tab" id="t0" aria-controls="p0" aria-selected="true">Understand</button>
+          <button class="tab" role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1">Discover</button>
+          <button class="tab" role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1">Prioritise</button>
+          <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Act</button>
         </div>
         <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0">
-          <div class="outcome" role="img" aria-label="Sample: if you follow this plan, savings rate would go from 16.9% (review recommended) to 30.1% (healthy). Illustration only, not a guarantee.">
-            <img src="img/outcome/head.png" alt="">
-            <div class="oc-card">
-              <img src="img/outcome/label.png" alt="">
-              <img src="img/outcome/numbers.png" alt="">
-            </div>
-          </div>
-          <p>See what would change if you follow your plan, before you commit. Here, the savings rate reaches Healthy as soon as the plan starts. An illustration, not a promise.</p>
+          <img src="img/understand.jpg" width="900" height="934" alt="Sample overview: total assets $531,000, total liabilities $208,000, net worth $323,000, monthly take-home income $6,800, monthly expenditure $4,965 and monthly surplus $1,135.">
+          <p>See your whole position at a glance: what you own, what you owe, your net worth and where your monthly pay goes.</p>
         </div>
         <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
           <div class="stack">
             <img src="img/score-emergency.jpg" width="900" height="463" alt="Sample scorecard: emergency fund 5.8 months, review recommended, against a 3 to 6 month reference.">
             <img src="img/score-debt.jpg" width="900" height="508" alt="Sample scorecard: debt repayments 23.1% of take-home pay, healthy, against a 35% reference.">
           </div>
-          <p>Each key measure is checked against a general guideline and given a clear status.</p>
+          <p>Each key measure is checked against a general guideline and given a clear status, so you can see what's on track.</p>
         </div>
         <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" hidden>
-          <img src="img/halal.jpg" width="900" height="705" alt="Sample list of halal alternatives to discuss: a fixed deposit and a unit trust.">
-          <p>Flag any savings or investments you'd like to talk through halal alternatives for. They're noted for discussion. Clearworth doesn't rate products as halal or not.</p>
+          <div class="stack">
+            <img src="img/prio-action.jpg" width="900" height="466" alt="Sample finding that needs attention: little of your wealth is invested, 7.7% invested.">
+            <img src="img/prio-review.jpg" width="900" height="518" alt="Sample finding that can improve: emergency fund below target, 5.8 months saved.">
+            <img src="img/prio-healthy.jpg" width="900" height="412" alt="Sample finding that is doing well: money left over each month, $1,135 a month.">
+          </div>
+          <p>Every finding is colour-coded as needs attention, can improve or doing well, so you know where to start.</p>
         </div>
         <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" hidden>
-          <div class="legacy" role="img" aria-label="Sample legacy checklist: zakat done, wasiat not done, hibah not sure, CPF nomination not done, waqaf done.">
-            <img class="head" src="img/legacy/lg-head.png" alt=""><div class="lg-row"><img src="img/legacy/lg-1-t.png" alt=""><img src="img/legacy/lg-1-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-2-t.png" alt=""><img src="img/legacy/lg-2-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-3-t.png" alt=""><img src="img/legacy/lg-3-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-4-t.png" alt=""><img src="img/legacy/lg-4-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-5-t.png" alt=""><img src="img/legacy/lg-5-s.png" alt=""></div>
+          <div class="stack">
+            <img src="img/act-step.jpg" width="900" height="602" alt="Sample next step: build your emergency fund from $25,000 to $25,890 by setting aside $890 a month into an accessible account, within a month.">
+            <img src="img/halal.jpg" width="900" height="705" alt="Sample list of halal alternatives to discuss: a fixed deposit and a unit trust.">
+            <div class="legacy" role="img" aria-label="Sample legacy checklist: zakat done, wasiat not done, hibah not sure, CPF nomination not done, waqaf done.">
+              <img class="head" src="img/legacy/lg-head.png" alt=""><div class="lg-row"><img src="img/legacy/lg-1-t.png" alt=""><img src="img/legacy/lg-1-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-2-t.png" alt=""><img src="img/legacy/lg-2-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-3-t.png" alt=""><img src="img/legacy/lg-3-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-4-t.png" alt=""><img src="img/legacy/lg-4-s.png" alt=""></div><div class="lg-row"><img src="img/legacy/lg-5-t.png" alt=""><img src="img/legacy/lg-5-s.png" alt=""></div>
+            </div>
           </div>
-          <p>Zakat, wasiat, hibah, nominations and waqaf in one checklist, so nothing important is missed.</p>
+          <p>Clear next steps in order, halal alternatives to discuss, and a legacy checklist so nothing important is missed. Halal alternatives are for discussion only. Clearworth doesn't rate products as halal or not.</p>
         </div>
         <span class="sample-tag">Sample client · fictional figures</span>
       </div>
