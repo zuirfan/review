@@ -54,6 +54,8 @@
   .panel img { display: block; width: 100%; height: auto; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); background: #fff; }
   .panel p { font-size: 15px; color: var(--muted); margin-top: 12px; padding: 0 4px; }
   .stack { display: grid; gap: 10px; }
+  /* Card grid: white edge matching the gaps between its cards */
+  .panel img.framed { padding: 10px; }
   .legacy { background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); padding: 8px 10px 6px 4px; }
   .panel .legacy img { box-shadow: none; border-radius: 0; width: auto; }
   .legacy .head { height: 26px; margin-bottom: 4px; }
@@ -138,7 +140,7 @@
           <button class="tab" role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1">Act</button>
         </div>
         <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0">
-          <img src="img/understand.jpg" width="900" height="934" alt="Sample overview: total assets $531,000, total liabilities $208,000, net worth $323,000, monthly take-home income $6,800, monthly expenditure $4,965 and monthly surplus $1,135.">
+          <img class="framed" src="img/understand.jpg" width="900" height="934" alt="Sample overview: total assets $531,000, total liabilities $208,000, net worth $323,000, monthly take-home income $6,800, monthly expenditure $4,965 and monthly surplus $1,135.">
           <p>See your whole position at a glance: what you own, what you owe, your net worth and where your monthly pay goes.</p>
         </div>
         <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
