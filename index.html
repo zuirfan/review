@@ -56,7 +56,8 @@
   .stack { display: grid; gap: 10px; }
   /* Overview cards sit straight on the panel, two to a row */
   .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .panel .cards img { box-shadow: none; border-radius: 0; background: none; }
+  /* Cards captured with transparent corners: no frame of their own */
+  .panel .cards img, .panel img.bare { box-shadow: none; border-radius: 0; background: none; }
   .legacy { background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(29,18,14,.12); padding: 8px 10px 6px 4px; }
   .panel .legacy img { box-shadow: none; border-radius: 0; width: auto; }
   .legacy .head { height: 26px; margin-bottom: 4px; }
@@ -150,8 +151,8 @@
         </div>
         <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" hidden>
           <div class="stack">
-            <img src="img/score-emergency.jpg" width="900" height="463" alt="Sample scorecard: emergency fund 5.8 months, review recommended, against a 3 to 6 month reference.">
-            <img src="img/score-debt.jpg" width="900" height="508" alt="Sample scorecard: debt repayments 23.1% of take-home pay, healthy, against a 35% reference.">
+            <img class="bare" src="img/score-emergency.png" width="900" height="507" alt="Sample scorecard: emergency fund 5.8 months, review recommended, against a 3 to 6 month reference.">
+            <img class="bare" src="img/score-debt.png" width="900" height="552" alt="Sample scorecard: debt repayments 23.1% of take-home pay, healthy, against a 35% reference.">
           </div>
           <p>Each key measure is checked against a general guideline and given a clear status, so you can see what's on track.</p>
         </div>
